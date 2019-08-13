@@ -8,9 +8,11 @@ const writeStream = fs.createWriteStream('post.csv');
 request('https://www.programme-tv.net/', (error, response, html) => {
     if(!error && response.statusCode == 200) {
         const $ =  cheerio.load(html);
+
     
-        const allInfos = $('.doubleBroadcastCard'); // titre de la chaine
+        const allInfos = $('.doubleBroadcastCard'); // all info boxchaines
   
+
        allInfos.each((i, el) => {
            const item = $(el)
            .text()
